@@ -1,9 +1,11 @@
 import re
+import json
+from pathlib import Path
+from typing import Union
 
 
 doublespace_pattern = re.compile("\s+")
 lineseparator_pattern = re.compile("\n+")
-
 
 def normalize_text(string: str) -> str:
     string = string.replace('\t', ' ')
@@ -13,3 +15,5 @@ def normalize_text(string: str) -> str:
     return string.strip()
 
 
+
+#TODO: Add Config - yaml or json ..
