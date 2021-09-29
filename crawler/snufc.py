@@ -3,6 +3,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 from utils import normalize_text
+from config import Config
 
 BASE_URL = "https://factcheck.snu.ac.kr/v2/facts/{}"
 FACTLIST_URL = "https://factcheck.snu.ac.kr/v2/facts?page={}&score={}"
@@ -24,7 +25,9 @@ def parse_page_by_id(id):
     return res, True
 
 
-def main(args):   
+def main(args):
+    dataset_config = Config(args.dataset_config)
+    
     res = []
     count = 0
     for score in range(6): 
@@ -51,7 +54,7 @@ def main(args):
                                 count, score, page, parsed['title']))
             page += 1
     
-    
+
 
 
 if __name__ == "__main__":

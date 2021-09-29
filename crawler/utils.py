@@ -13,7 +13,3 @@ def normalize_text(string: str) -> str:
     string = lineseparator_pattern.sub('\n', string)
     string = doublespace_pattern.sub(' ', string)
     return string.strip()
-
-
-
-#TODO: Add Config - yaml or json ..
