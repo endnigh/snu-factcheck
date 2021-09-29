@@ -2,4 +2,14 @@ import re
 
 
 doublespace_pattern = re.compile("\s+")
-lineseparator_pattern = 
+lineseparator_pattern = re.compile("\n+")
+
+
+def normalize_text(string: str) -> str:
+    string = string.replace('\t', ' ')
+    string = string.replace('\r', ' ')
+    string = lineseparator_pattern.sub('\n', string)
+    string = doublespace_pattern.sub(' ', string)
+    return string.strip()
+
+
